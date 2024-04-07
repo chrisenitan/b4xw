@@ -3,11 +3,9 @@ chrome.runtime.onConnect.addListener(function (port) {
   if (port.name === "contentScriptConnection") {
     console.log("Connected to content script")
     port.onMessage.addListener(function (message) {
-      console.log("Received activation from tab content script")
-      let totalTabs = 0
+      console.log(message)
       chrome.tabs.query({ currentWindow: true }, function (tabs) {
-        totalTabs = tabs.length
-        port.postMessage({ totalTabs })
+        port.postMessage({ tabsLength: tabs.length })
       })
     })
   }
