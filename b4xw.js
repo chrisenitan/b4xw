@@ -1,5 +1,5 @@
 //Gets tab count from sw and checks before closing if tab is the last in window
-//requires at least one interaction with the page after load event is fired
+//requires sticky activation https://developer.mozilla.org/en-US/docs/Glossary/Sticky_activation 
 window.addEventListener("load", function () {
   const port = chrome.runtime.connect({ name: "contentScriptConnection" })
   port.postMessage({ message: "Registering tab with background" })
