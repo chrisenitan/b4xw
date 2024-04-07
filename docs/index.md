@@ -20,6 +20,7 @@ This confirmation is only done if it notices you have one tab left in your windo
 #FAQs
 
 - Does this work across multiple windows: B4xw isolates the counting of tabs per window.
+- Does it work if I close the window. No, b4xw only kicks in if you close tabs individually. If you close the window at once, that follows normal behavior and window will be closed
 
 #Permissions
 
