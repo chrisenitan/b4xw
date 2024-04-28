@@ -9,6 +9,10 @@ Sometimes you just click the close all or `CTRL W` too fast you end up closing a
 
 - If it is, you get a default browser prompt asking if you really want to close the tab/window; saving you an unwanted action just incase.
 
-**Features**
+## features
 
 1. Automatically adds an event to each page to check if the tab is the last in the window
+
+## planned
+
+- see [issues](https://github.com/chrisenitan/b4xw/issues) list
