@@ -1,5 +1,5 @@
 {
-  "name": "Before closing last tab",
+  "name": "Before closing the last tab",
   "short_name": "B4xw",
   "permissions": ["tabs"],
   "version": "0.5",
