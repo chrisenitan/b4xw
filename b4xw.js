@@ -6,15 +6,21 @@ const beforeUnload = (event) => {
   return ""
 }
 
-window.addEventListener("focus", function () {
+function checkTabCountAndSetUnload() {
   const port = chrome.runtime.connect({ name: "contentScriptConnection" })
   port.postMessage({ message: "Registering tab with background script" })
   port.onMessage.addListener(function ({ tabsLength }) {
-    if (tabsLength == 1) {
+    if (tabsLength === 1) {
       console.log(`Adding unload event to last tab ${tabsLength}`)
       window.addEventListener("beforeunload", beforeUnload)
     } else {
       window.removeEventListener("beforeunload", beforeUnload)
     }
   })
-})
+}
+
+// Check tab count on load
+checkTabCountAndSetUnload()
+
+// Check tab count on focus
+window.addEventListener("focus", checkTabCountAndSetUnload)
