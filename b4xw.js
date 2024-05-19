@@ -1,23 +1,20 @@
-//b4xw.js https://developer.chrome.com/docs/extensions/reference/api
-/**
- * Returns true if current tab contains at least 2 history states
- * Ideally, tab is old and has been used vs new tab
- */
-const useUnloader = () => {
-  const history = window.history.length
-  return history > 2
+//Gets tab count from sw and checks before closing if tab is the last in window
+//requires sticky activation https://developer.mozilla.org/en-US/docs/Glossary/Sticky_activation
+
+const beforeUnload = (event) => {
+  event.preventDefault()
+  return ""
 }
 
-//requires sticky activation https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#usage_notes
-window.addEventListener("load", function () {
+window.addEventListener("focus", function () {
   const port = chrome.runtime.connect({ name: "contentScriptConnection" })
-  port.postMessage({ message: "Registering tab with background" })
+  port.postMessage({ message: "Registering tab with background script" })
   port.onMessage.addListener(function ({ tabsLength }) {
     if (tabsLength == 1) {
-      window.addEventListener("beforeunload", function (event) {
-        if (useUnloader()) event.preventDefault()
-        return ""
-      })
+      console.log(`Adding unload event to last tab ${tabsLength}`)
+      window.addEventListener("beforeunload", beforeUnload)
+    } else {
+      window.removeEventListener("beforeunload", beforeUnload)
     }
   })
 })
