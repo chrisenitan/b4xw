@@ -2,7 +2,7 @@
 
 A browser extension to prevent unintended closing of an open window when the last tab in the window is closed mistakenly
 
-- [Extension on Google Chrome Store](https://chrome.google.com/webstore/detail/whave/onmmaefeecidiliagmmbelkaeicmaang?utm_source=chrome-ntp-icon)
+- [Extension on Google Chrome Store](https://chromewebstore.google.com/detail/before-closing-the-last-t/njncdcmlohakjhpcdbimfhndgkahlgfi?utm_source=chrome-ntp-icon)
 
 ## Why
 
