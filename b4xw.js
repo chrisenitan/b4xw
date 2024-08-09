@@ -14,6 +14,7 @@ function checkTabCountAndSetUnload() {
       console.log(`Adding unload event to last tab ${tabsLength}`)
       window.addEventListener("beforeunload", beforeUnload)
     } else {
+      //this actually causes some sites with self logic beforeunload to act un-accordingly
       window.removeEventListener("beforeunload", beforeUnload)
     }
   })

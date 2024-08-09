@@ -2,7 +2,7 @@
   "name": "Before closing the last tab",
   "short_name": "B4xw",
   "permissions": ["tabs"],
-  "version": "0.5",
+  "version": "0.6",
   "manifest_version": 3,
   "description": "Checks with user if the last active tab of a window should indeed be closed",
   "background": {
